@@ -8,7 +8,7 @@ public class Calendar {
 	
 	
 	private Calendar() {
-		cal = java.util.Calendar.getInstance();
+		cal = java.util.Calendar.getInstance();//ok this is test 
 	}
 	
 	public static Calendar getInstance() {
