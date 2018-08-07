@@ -1,19 +1,19 @@
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+//editing in loan section now
 @SuppressWarnings("serial")
 public class loan implements Serializable {
-	
+
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
-	
+
 	private int ID;
 	private book B;
 	private member M;
 	private Date D;// testing
 	private LOAN_STATE state;
 
-	
+
 	public loan(int loanId, book book, member member, Date dueDate) {
 		this.ID = loanId;
 		this.B = book;
@@ -22,20 +22,20 @@ public class loan implements Serializable {
 		this.state = LOAN_STATE.CURRENT;
 	}
 
-	
+
 	public void checkOverDue() {
 		if (state == LOAN_STATE.CURRENT &&
 			Calendar.getInstance().Date().after(D)) {
-			this.state = LOAN_STATE.OVER_DUE;			
+			this.state = LOAN_STATE.OVER_DUE;
 		}
 	}
 
-	
+
 	public boolean isOverDue() {
 		return state == LOAN_STATE.OVER_DUE;
 	}//testing
 
-	
+
 	public Integer getId() {
 		return ID;
 	}
@@ -44,8 +44,8 @@ public class loan implements Serializable {
 	public Date getDueDate() {
 		return D;
 	}
-	
-	
+
+
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -56,7 +56,7 @@ public class loan implements Serializable {
 		  .append("  Book ").append(B.ID()).append(" : " )
 		  .append(B.Title()).append("\n")
 		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
-		  .append("  State: ").append(state);		
+		  .append("  State: ").append(state);
 		return sb.toString();
 	}
 
@@ -72,7 +72,7 @@ public class loan implements Serializable {
 
 
 	public void Loan() {
-		state = LOAN_STATE.DISCHARGED;		
+		state = LOAN_STATE.DISCHARGED;
 	}
 
 }
