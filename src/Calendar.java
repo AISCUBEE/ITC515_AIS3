@@ -3,12 +3,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Calendar {
 	
-	private static Calendar self;
+	private static Calendar self;//testing push and pull
 	private static java.util.Calendar cal;
 	
 	
 	private Calendar() {
-		cal = java.util.Calendar.getInstance();
+		cal = java.util.Calendar.getInstance();//ok this is test 
 	}
 	
 	public static Calendar getInstance() {
