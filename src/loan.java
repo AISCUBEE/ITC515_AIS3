@@ -10,7 +10,7 @@ public class loan implements Serializable {
 	private int ID;
 	private book B;
 	private member M;
-	private Date D;
+	private Date D;// testing
 	private LOAN_STATE state;
 
 	
@@ -33,7 +33,7 @@ public class loan implements Serializable {
 	
 	public boolean isOverDue() {
 		return state == LOAN_STATE.OVER_DUE;
-	}
+	}//testing
 
 	
 	public Integer getId() {
