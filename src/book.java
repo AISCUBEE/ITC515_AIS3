@@ -4,10 +4,10 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class book implements Serializable {
 	
-	private String T;
+	private String T;// testingg
 	private String A;
 	private String C;
-	private int ID;
+	private int ID;//testing again
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
