@@ -6,7 +6,7 @@ public class Main {
 
 	private static Scanner IN;//test
 	private static library LIB;
-	private static String MENU;
+	private static String MENU;// testing main
 	private static Calendar CAL;
 	private static SimpleDateFormat SDF;
 
