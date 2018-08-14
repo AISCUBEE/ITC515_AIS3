@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class Book implements Serializable { //Class name intial is always in capitals 
+public class Book implements Serializable { //Class name initial is always in capitals 
 	
 	private String T;
 	private String A;
