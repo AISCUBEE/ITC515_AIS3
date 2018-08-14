@@ -1,13 +1,16 @@
+/*
+@author : Aashish Maharjan
+*/
 import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+public class Book implements Serializable { //Class name initial is always in capitals 
 	
-	private String T;// testingg
+	private String T;
 	private String A;
 	private String C;
-	private int ID;//testing again
+	private int ID;
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
