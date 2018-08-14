@@ -7,10 +7,10 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable { //Class name intial is always in capitals 
 	
-	private String T;// testingg
+	private String T;
 	private String A;
 	private String C;
-	private int ID;//testing again
+	private int ID;
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
