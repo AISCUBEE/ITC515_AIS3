@@ -1,22 +1,23 @@
-public class FixBookControl {// one more try
+/*Atuhor: Ashmit Man Sthapit*/
+public class FixBookControl {
 	
 	private FixBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
 	private CONTROL_STATE state;
 	
-	private library library;
-	private book currentBook;
+	private Library library;//changed class name library to Library
+	private Book currentBook;// changed class name book to Book
 
 
 	public FixBookControl() {
-		this.library = library.INSTANCE();
+		this.library = library.INSTANCE();//
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
 	
-	public void setUI(FixBookUI ui) {
+	public void setUi(FixBookUI ui) {// changed setUI to setUi
 		if (!state.equals(CONTROL_STATE.INITIALISED)) {
-			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
+			throw new RuntimeException("FixBookControl: cannot call setUi except in INITIALISED state");
 		}	
 		this.ui = ui;
 		ui.setState(FixBookUI.UI_STATE.READY);
