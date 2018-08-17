@@ -1,4 +1,4 @@
-/*Atuhor: Ashmit Man Sthapit*/
+/*Author: Ashmit Man Sthapit*/
 public class FixBookControl {
 	
 	private FixBookUI ui;
