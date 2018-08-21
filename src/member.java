@@ -35,7 +35,7 @@ public class Member implements Serializable {  // class member changed to Member
 
 	
 	public String toString() {
-		StringBuilder stringBuilder = new StringBuilder(); // constructor sb is changed to StringBuilder
+		StringBuilder StringBuilder = new StringBuilder(); // constructor sb is changed to StringBuilder
 		StringBuilder.append("Member:  ").append(id).append("\n") // sb to StringBuilder
 		  .append("  Name:  ").append(lastName).append(", ").append(firstName).append("\n")//LN to lastName and FN to firstName
 		  .append("  Email: ").append(email).append("\n") // EM to email
@@ -47,7 +47,7 @@ public class Member implements Serializable {  // class member changed to Member
 		for (loan loan : loan.values()) {  // added loan
 			StringBuilder.append(loan).append("\n"); // sb to StringBuilder
 		}		  
-		return StringBuilder.toString(); sb to StringBuilder // sb to StringBuilder
+		return StringBuilder.toString();// sb to StringBuilder
 	}
 
 	
