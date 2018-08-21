@@ -82,10 +82,10 @@ public class BorrowBookUI {
 				} 
 				break;
 					
-				
+			//updating the ans to answer to make it more meaningful	
 			case FINALISING:
-				String ans = input("Commit loans? (Y/N): ");
-				if (ans.toUpperCase().equals("N")) {
+				String answer = input("Commit loans? (Y/N): ");
+				if (answer.toUpperCase().equals("N")) {
 					control.cancel();
 					
 				} else {
