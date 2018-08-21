@@ -40,27 +40,27 @@ public class Library implements Serializable {// class name was started with sma
 	private Map<Integer, Book> damagedBooks;
 	
 
-	private library() {
+	private Library() {// constructor name should be same as class name
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;		
-		LID = 1;		
+		bookId = 1;//changed the variable into meaning full word
+		MemberId = 1;//changed the variable into meaning full word		
+		loanId = 1;	//changed the variable into meaning full word	
 	}
 
 	
-	public static synchronized library INSTANCE() {		
+	public static synchronized Library INSTANCE() {	//	
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
-				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {
+				try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {// changing object of ObjectInputStream to meaning full name
 			    
-					self = (library) lof.readObject();
+					self = (library) inputStream.readObject();// changed lof into inputStream
 					Calendar.getInstance().setDate(self.loadDate);
-					lof.close();
+					inputStream.close();//changed lof into inputStream
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
@@ -75,10 +75,10 @@ public class Library implements Serializable {// class name was started with sma
 	public static synchronized void SAVE() {
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
-			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
-				lof.writeObject(self);
-				lof.flush();
-				lof.close();	
+			try (ObjectOutputStream outputstream = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) { //changed outputstream into outputstream
+				outputstream.writeObject(self);
+				outputstream.flush();
+				outputstream.close();	
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e);
@@ -87,28 +87,28 @@ public class Library implements Serializable {// class name was started with sma
 	}
 
 	
-	public int BookID() {
-		return BID;
+	public int bookId() {//changed BookID to bookId
+		return bookId;//change BID to bookId
 	}
 	
 	
-	public int MemberID() {
-		return MID;
+	public int memberId() {//changed MemberId to memberId
+		return memberId;// changed MID to memberId
 	}
 	
 	
-	private int nextBID() {
+	private int nextBookId() {//changed nextBID to nextBookId
 		return BID++;
 	}
 
 	
-	private int nextMID() {
+	private int nextMemberId() {
 		return MID++;
 	}
 
 	
-	private int nextLID() {
-		return LID++;
+	private int nextLoanId() {//changed nextLTD to nextLoanId
+		return loanId++;//changed LTD to loanId
 	}
 
 	
@@ -128,14 +128,14 @@ public class Library implements Serializable {// class name was started with sma
 
 
 	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+		member member = new member(lastName, firstName, email, phoneNo, nextMemberId());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
-		book b = new book(a, t, c, nextBID());
+	public book Add_book(String a, String t, String c) {//		
+		book b = new book(a, t, c, nextBookId());//changed nextBID to nextBookId
 		catalog.put(b.ID(), b);		
 		return b;
 	}
@@ -182,7 +182,7 @@ public class Library implements Serializable {// class name was started with sma
 	
 	public loan issueLoan(book book, member member) {
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		loan loan = new loan(nextLID(), book, member, dueDate);
+		loan loan = new loan(nextLoanId(), book, member, dueDate);
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
