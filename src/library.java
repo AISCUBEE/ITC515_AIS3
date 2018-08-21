@@ -1,3 +1,8 @@
+//Author: Ashmit Sthapit
+//Reviewer: Shyam Shrestha
+//Mediator: Santosh Sapkota
+//Facilitator: Aashish Maharjan
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -13,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable {// class name was started with small letter, library changed into Library
 	
 	private static final String LIBRARY_FILE = "library.obj";
 	private static final int LOAN_LIMIT = 2;
@@ -22,17 +27,17 @@ public class library implements Serializable {
 	private static final double MAX_FINES_OWED = 5.0;
 	private static final double DAMAGE_FEE = 2.0;
 	
-	private static library self;
-	private int BID;
-	private int MID;
-	private int LID;
+	private static Library self;// class name should start from capital letter
+	private int bookId;//changed the variable into meaning full word, BID to bookId
+	private int memberId;//changed the variable into meaning full word, MID to memberId
+	private int loanId;//changed the variable into meaning full word, LID to loanId
 	private Date loadDate;
 	
-	private Map<Integer, book> catalog;
-	private Map<Integer, member> members;
-	private Map<Integer, loan> loans;
-	private Map<Integer, loan> currentLoans;
-	private Map<Integer, book> damagedBooks;
+	private Map<Integer, Book> catalog;
+	private Map<Integer, Member> members;
+	private Map<Integer, Loan> loans;
+	private Map<Integer, Loan> currentLoans;
+	private Map<Integer, Book> damagedBooks;
 	
 
 	private library() {
