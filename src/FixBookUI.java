@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class FixBookUI {
 
-	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };//change UiState to UiState
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };//change UI_STATE to UiState
 
 	private FixBookControl control;
 	private Scanner input;
-	private UiState state;//change UiState to UiState
+	private UiState state;//change UI_STATE to UiState
 
 	
 	public FixBookUI(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UiState.INITIALISED;//change UiState to UiState
+		state = UiState.INITIALISED;//change UI_STATE to UiState
 		control.setUI(this);
 	}
 
 
-	public void setState(UiState state) {//change UiState to UiState
+	public void setState(UiState state) {//change UI_STATE to UiState
 		this.state = state;
 	}
 
@@ -32,13 +32,13 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): ");// bookString changed to bookString
+				String bookString = input("Scan Book (<enter> completes): ");// bookStr changed to bookString
 				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookString).intValue();// bookString changed to bookString
+						int bookId = Integer.valueOf(bookString).intValue();// bookStr changed to bookString
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {

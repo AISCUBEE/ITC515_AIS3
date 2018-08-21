@@ -1,25 +1,26 @@
-public class FixBookControl {// one more try
+/*Author: Ashmit Man Sthapit*/
+public class FixBookControl {
 	
 	private FixBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
 	private CONTROL_STATE state;
 	
-	private library library;
-	private book currentBook;
+	private Library library;//changed class name library to Library
+	private Book currentBook;// changed class name book to Book
 
 
 	public FixBookControl() {
-		this.library = library.INSTANCE();
+		this.library = library.INSTANCE();//
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
 	
-	public void setUI(FixBookUI ui) {
+	public void setUi(FixBookUI ui) {// changed setUI to setUi
 		if (!state.equals(CONTROL_STATE.INITIALISED)) {
-			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
+			throw new RuntimeException("FixBookControl: cannot call setUi except in INITIALISED state");
 		}	
 		this.ui = ui;
-		ui.setState(FixBookUI.UI_STATE.READY);
+		ui.setState(FixBookUI.UiState.READY);//change UI_STATE to UiState
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -39,7 +40,7 @@ public class FixBookControl {// one more try
 			return;
 		}
 		ui.display(currentBook.toString());
-		ui.setState(FixBookUI.UI_STATE.FIXING);
+		ui.setState(FixBookUI.UiState.FIXING);//change UI_STATE to UiState
 		state = CONTROL_STATE.FIXING;		
 	}
 
@@ -52,7 +53,7 @@ public class FixBookControl {// one more try
 			library.repairBook(currentBook);
 		}
 		currentBook = null;
-		ui.setState(FixBookUI.UI_STATE.READY);
+		ui.setState(FixBookUI.UiState.READY);//change UI_STATE to UiState
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -61,7 +62,7 @@ public class FixBookControl {// one more try
 		if (!state.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		ui.setState(FixBookUI.UI_STATE.COMPLETED);		
+		ui.setState(FixBookUI.UiState.COMPLETED);	//change UI_STATE to UiState	
 	}
 
 
