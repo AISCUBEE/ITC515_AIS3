@@ -28,7 +28,7 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void setState(UI_STATE state) { //updating UI_STATE to UiState
+	public void setState(UiState state) { //updating UI_STATE to UiState
 		this.state = state;
 	}
 
