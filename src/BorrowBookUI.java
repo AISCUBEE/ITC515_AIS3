@@ -66,15 +66,15 @@ public class BorrowBookUI {
 				control.cancel();
 				break;
 			
-				
+			//updating all bookStr to bookString	
 			case SCANNING:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): ");
+				if (bookString.length() == 0) {
 					control.Complete();
 					break;
 				}
 				try {
-					int bookId = Integer.valueOf(bookStr).intValue();
+					int bookId = Integer.valueOf(bookString).intValue();
 					control.Scanned(bookId);
 					
 				} catch (NumberFormatException e) {
