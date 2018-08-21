@@ -33,10 +33,12 @@ public class BorrowBookControl {
 
 		
 	public void Swiped(int memberId) {
-		if (!state.equals(ControlState.READY)) //renaming CONTROL_STATE to ControlState 
+		//adding the curly braces
+		if (!state.equals(ControlState.READY)){ //renaming CONTROL_STATE to ControlState 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
-			
+		}	
 		member = library.getMember(memberId); //renaming variable L and M to library and member
+		// adding the scape for better formating
 		if (member == null) { //renaming M to member
 			ui.display("Invalid memberId");
 			return;
