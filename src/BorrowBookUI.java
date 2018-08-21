@@ -44,15 +44,15 @@ public class BorrowBookUI {
 				output("Borrowing Cancelled");
 				return;
 
-				
+			// renaming all the memberStr to memberString	
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
+				String memberString = input("Swipe member card (press <enter> to cancel): ");
+				if (memberString.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memberStr).intValue();
 					control.Swiped(memberId);
 				}
 				catch (NumberFormatException e) {
