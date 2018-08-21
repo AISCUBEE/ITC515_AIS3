@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-//one last try before everything
 public class BorrowBookUI {
 	
 	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
