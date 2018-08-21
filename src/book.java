@@ -7,21 +7,21 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable { //Class name initial is always in capitals changing book to Book
 	
-	private String t; //check in the GIT 
-	private String A;
-	private String C;
-	private int ID;
+	private String title; //updating variable T to title
+	private String author; //updating variable A to author
+	private String callNo; //updating variable C to callNo
+	private int id; //updating variable ID to id
 	
-	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private STATE state;
+	private enum state { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; //changing STATE to state
+	private State state; //changing type STATE to State
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
-		this.state = STATE.AVAILABLE;
+		this.author = author; //updating variable this.T to this.title
+		this.title = title; //updating variable this.A to this.author
+		this.callNo = callNo; //updating variable this.C to this.callNo
+		this.id = id; //updating variable this.ID to this.id
+		this.state = State.AVAILABLE; //updating STATE to State
 	}
 	
 	public String toString() {
@@ -39,14 +39,14 @@ public class Book implements Serializable { //Class name initial is always in ca
 		return ID;
 	}
 
-	public String Title() {
-		return T;
+	public String title() { //updating Title to title
+		return title; //changing return value T to title 
 	}
 
 
 	
-	public boolean Available() {
-		return state == STATE.AVAILABLE;
+	public boolean available() { //updating function Available to available
+		return state == STATE.AVAILABLE; // enum STATE to state
 	}
 
 	
