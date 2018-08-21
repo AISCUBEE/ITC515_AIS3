@@ -2,6 +2,7 @@
 //Reviewer: Santosh
 // Mediator : Aashis
 //Facilitator: Ashmit
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +35,7 @@ public class Member implements Serializable {  // class member changed to Member
 
 	
 	public String toString() {
-		StringBuilder stringBuilder = new StringBuilder(); // constructor sb is changed to StringBuilder
+		StringBuilder StringBuilder = new StringBuilder(); // constructor sb is changed to StringBuilder
 		StringBuilder.append("Member:  ").append(id).append("\n") // sb to StringBuilder
 		  .append("  Name:  ").append(lastName).append(", ").append(firstName).append("\n")//LN to lastName and FN to firstName
 		  .append("  Email: ").append(email).append("\n") // EM to email
@@ -46,7 +47,7 @@ public class Member implements Serializable {  // class member changed to Member
 		for (loan loan : loan.values()) {  // added loan
 			StringBuilder.append(loan).append("\n"); // sb to StringBuilder
 		}		  
-		return StringBuilder.toString(); sb to StringBuilder // sb to StringBuilder
+		return StringBuilder.toString();// sb to StringBuilder
 	}
 
 	
@@ -71,7 +72,7 @@ public class Member implements Serializable {  // class member changed to Member
 
 	
 	public void takeOutLoan(loan loan) {
-		if (!loans.containsKey(loan.getId())) { loans to LNS
+		if (!loans.containsKey(loan.getId())) { 
 			loans.put(loan.getId(), loan); // LNS to loan
 		}
 		else {
@@ -81,17 +82,17 @@ public class Member implements Serializable {  // class member changed to Member
 
 	
 	public String getLastName() {
-		return LN;
+		return loans; // LNS to loans
 	}
 
 	
 	public String getFirstName() {
-		return FN;
+		return firstName; // FN to functioName
 	}
 
 
 	public void addFine(double fine) {
-		FINES += fine;
+		fines += fine;// change FINES to fines
 	}
 	
 	public double payFine(double amount) {
@@ -99,20 +100,20 @@ public class Member implements Serializable {  // class member changed to Member
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (amount > FINES) {
-			change = amount - FINES;
-			FINES = 0;
+		if (amount > fines) {  // FINES to fines
+			change = amount - fines;// FINES to fines
+			fines = 0;
 		}
 		else {
-			FINES -= amount;
+			fines -= amount;
 		}
 		return change;
 	}
 
 
 	public void dischargeLoan(loan loan) {
-		if (LNS.containsKey(loan.getId())) {
-			LNS.remove(loan.getId());
+		if (loans.containsKey(loan.getId())) { // LNS to loans
+			loans.remove(loan.getId());
 		}
 		else {
 			throw new RuntimeException("No such loan held by member");
