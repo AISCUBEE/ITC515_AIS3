@@ -46,16 +46,16 @@ public class Book implements Serializable { //Class name initial is always in ca
 
 	
 	public boolean available() { //updating function Available to available
-		return state == STATE.AVAILABLE; // enum STATE to state
+		return state == State.AVAILABLE; // enum STATE to State
 	}
 
 	
-	public boolean On_loan() {
-		return state == STATE.ON_LOAN;
+	public boolean onLoan() { //remaining On_loan to onLoan
+		return state == State.ON_LOAN; //changes in the variable STATE to state
 	}
 
 	
-	public boolean Damaged() {
+	public boolean Damaged() { 
 		return state == STATE.DAMAGED;
 	}
 
