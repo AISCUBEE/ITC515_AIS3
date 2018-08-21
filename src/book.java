@@ -72,12 +72,12 @@ public class Book implements Serializable { //Class name initial is always in ca
 
 
 	public void returnBook(boolean DAMAGED) { //renaming Return to returnBook in the method
-		if (state.equals(State.ON_LOAN)) {
+		if (state.equals(State.ON_LOAN)) { //changing STATE to State
 			if (DAMAGED) {
-				state = State.DAMAGED;
+				state = State.DAMAGED; //changing STATE to State
 			}
 			else {
-				state = State.AVAILABLE;
+				state = State.AVAILABLE; //changing STATE to State
 			}
 		}
 		else {
@@ -86,9 +86,9 @@ public class Book implements Serializable { //Class name initial is always in ca
 	}
 
 	
-	public void Repair() {
-		if (state.equals(STATE.DAMAGED)) {
-			state = STATE.AVAILABLE;
+	public void repair() {// changing Repair to repair
+		if (state.equals(State.DAMAGED)) { //changing STATE to State
+			state = State.AVAILABLE; //changing STATE to State
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", state));
