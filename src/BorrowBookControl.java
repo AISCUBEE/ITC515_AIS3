@@ -13,7 +13,7 @@ public class BorrowBookControl {
 	private ControlState state; //changing enum CONTROL_STATE to ControlState
 	private List<book> pending; //changing PENDING TO pending
 	private List<loan> completed; // changing COMPLETED to completed
-	private book book; // changing variable B to book
+	private Book book; // changing variable B to book and also book variable in Book
 	
 	
 	public BorrowBookControl() {
