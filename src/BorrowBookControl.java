@@ -11,9 +11,9 @@ public class BorrowBookControl {
 	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
 	//changing enum CONTROL_STATE to ControlState
 	private ControlState state; //changing enum CONTROL_STATE to ControlState
-	private List<book> pending;
-	private List<loan> COMPLETED;
-	private book B;
+	private List<book> pending; //changing PENDING TO pending
+	private List<loan> completed; // changing COMPLETED to completed
+	private book book; // changing variable B to book
 	
 	
 	public BorrowBookControl() {
