@@ -1,17 +1,30 @@
+//author: Shyam
+// Reviewer : Santosh
+//Mediater : Aashish
+//Facilitator : Ashmit
+
+/*************************************************************
+Create a class named Loan, defining parameters and methods 
+that describe a loan application for borrowing a book from 
+a library in real life.
+
+*************************************************************/
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 //editing in loan section now
+
 @SuppressWarnings("serial")
-public class loan implements Serializable {
 
-	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
+public class Loan implements Serializable {  // Public class loan is changed to Loan, class name should start with capital letter
 
-	private int ID;
-	private book B;
-	private member M;
-	private Date D;// testing
-	private LOAN_STATE state;
+	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED }; // changed the name LOAN_STATE to loanState
+	private int id;         // ID is changed to id
+	private Book book;	    // book t
+	private Member member; //changing variable m to member
+	private Date date; 
+	private loanState state;
 
 
 	public loan(int loanId, book book, member member, Date dueDate) {
