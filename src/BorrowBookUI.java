@@ -2,17 +2,17 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED }; //Changing enum variable from UI_STATE to UiState with camelback protocol
 
 	private BorrowBookControl control;
 	private Scanner input;
-	private UI_STATE state;
+	private UiState state; //changing UI_STATE to UiState
 
 	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
+		state = UiState.INITIALISED; //changing variable name from UI_STATE to UiState
 		control.setUI(this);
 	}
 
@@ -28,7 +28,7 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void setState(UI_STATE state) {
+	public void setState(UI_STATE state) { //updating UI_STATE to UiState
 		this.state = state;
 	}
 
