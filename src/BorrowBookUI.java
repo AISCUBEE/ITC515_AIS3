@@ -44,15 +44,15 @@ public class BorrowBookUI {
 				output("Borrowing Cancelled");
 				return;
 
-				
+			// renaming all the memberStr to memberString	
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
+				String memberString = input("Swipe member card (press <enter> to cancel): ");
+				if (memberString.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memberStr).intValue();
 					control.Swiped(memberId);
 				}
 				catch (NumberFormatException e) {
@@ -66,15 +66,15 @@ public class BorrowBookUI {
 				control.cancel();
 				break;
 			
-				
+			//updating all bookStr to bookString	
 			case SCANNING:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): ");
+				if (bookString.length() == 0) {
 					control.Complete();
 					break;
 				}
 				try {
-					int bookId = Integer.valueOf(bookStr).intValue();
+					int bookId = Integer.valueOf(bookString).intValue();
 					control.Scanned(bookId);
 					
 				} catch (NumberFormatException e) {
@@ -82,10 +82,10 @@ public class BorrowBookUI {
 				} 
 				break;
 					
-				
+			//updating the ans to answer to make it more meaningful	
 			case FINALISING:
-				String ans = input("Commit loans? (Y/N): ");
-				if (ans.toUpperCase().equals("N")) {
+				String answer = input("Commit loans? (Y/N): ");
+				if (answer.toUpperCase().equals("N")) {
 					control.cancel();
 					
 				} else {
