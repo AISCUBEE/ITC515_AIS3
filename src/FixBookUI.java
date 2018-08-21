@@ -1,24 +1,25 @@
+//Author: Ashmit Man Sthapit
 import java.util.Scanner;
 
 
 public class FixBookUI {
 
-	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };//change UiState to UiState
 
 	private FixBookControl control;
 	private Scanner input;
-	private UI_STATE state;
+	private UiState state;//change UiState to UiState
 
 	
 	public FixBookUI(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
+		state = UiState.INITIALISED;//change UiState to UiState
 		control.setUI(this);
 	}
 
 
-	public void setState(UI_STATE state) {
+	public void setState(UiState state) {//change UiState to UiState
 		this.state = state;
 	}
 
@@ -31,13 +32,13 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): ");// bookString changed to bookString
+				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookStr).intValue();
+						int bookId = Integer.valueOf(bookString).intValue();// bookString changed to bookString
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -47,9 +48,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String ans = input("Fix Book? (Y/N) : ");
+				String option = input("Fix Book? (Y/N) : ");//change ans to option
 				boolean fix = false;
-				if (ans.toUpperCase().equals("Y")) {
+				if (option.toUpperCase().equals("Y")) {// changed ans to option
 					fix = true;
 				}
 				control.fixBook(fix);

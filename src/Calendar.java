@@ -1,10 +1,11 @@
-import java.util.Date;
+import java.util.Date;// second try reedit
 import java.util.concurrent.TimeUnit;
+
 
 public class Calendar {
 	
 	private static Calendar self;
-	private static java.util.Calendar cal;
+	private static java.util.Calendar calendar; //updating variable cal to calendar
 	
 	
 	private Calendar() {

@@ -1,24 +1,27 @@
+/*
+@author : Aashish Maharjan
+*/
 import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+public class Book implements Serializable { //Class name initial is always in capitals changing book to Book
 	
-	private String T;// testingg
-	private String A;
-	private String C;
-	private int ID;//testing again
+	private String title; //updating variable T to title
+	private String author; //updating variable A to author
+	private String callNo; //updating variable C to callNo
+	private int id; //updating variable ID to id
 	
-	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private STATE state;
+	private enum state { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; //changing STATE to state
+	private State state; //changing type STATE to State
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
-		this.state = STATE.AVAILABLE;
+		this.author = author; //updating variable this.T to this.title
+		this.title = title; //updating variable this.A to this.author
+		this.callNo = callNo; //updating variable this.C to this.callNo
+		this.id = id; //updating variable this.ID to this.id
+		this.state = State.AVAILABLE; //updating STATE to State
 	}
 	
 	public String toString() {
@@ -36,28 +39,28 @@ public class book implements Serializable {
 		return ID;
 	}
 
-	public String Title() {
-		return T;
+	public String title() { //updating Title to title
+		return title; //changing return value T to title 
 	}
 
 
 	
-	public boolean Available() {
-		return state == STATE.AVAILABLE;
+	public boolean available() { //updating function Available to available
+		return state == State.AVAILABLE; // enum STATE to State
 	}
 
 	
-	public boolean On_loan() {
-		return state == STATE.ON_LOAN;
+	public boolean onLoan() { //renaming On_loan to onLoan
+		return state == State.ON_LOAN; //changes in the variable STATE to state
 	}
 
 	
-	public boolean Damaged() {
-		return state == STATE.DAMAGED;
+	public boolean damaged() {  // changing Damaged to damaged
+		return state == State.DAMAGED; //changing STATE to State
 	}
 
 	
-	public void Borrow() {
+	public void borrow() { //renaming Borrow to borrow in the method
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
 		}
@@ -68,13 +71,13 @@ public class book implements Serializable {
 	}
 
 
-	public void Return(boolean DAMAGED) {
-		if (state.equals(STATE.ON_LOAN)) {
+	public void returnBook(boolean DAMAGED) { //renaming Return to returnBook in the method
+		if (state.equals(State.ON_LOAN)) { //changing STATE to State
 			if (DAMAGED) {
-				state = STATE.DAMAGED;
+				state = State.DAMAGED; //changing STATE to State
 			}
 			else {
-				state = STATE.AVAILABLE;
+				state = State.AVAILABLE; //changing STATE to State
 			}
 		}
 		else {
@@ -83,9 +86,9 @@ public class book implements Serializable {
 	}
 
 	
-	public void Repair() {
-		if (state.equals(STATE.DAMAGED)) {
-			state = STATE.AVAILABLE;
+	public void repair() {// changing Repair to repair
+		if (state.equals(State.DAMAGED)) { //changing STATE to State
+			state = State.AVAILABLE; //changing STATE to State
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", state));

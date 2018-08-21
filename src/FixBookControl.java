@@ -1,4 +1,4 @@
-public class FixBookControl {
+public class FixBookControl {// one more try
 	
 	private FixBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
