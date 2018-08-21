@@ -3,13 +3,14 @@ import java.util.List;
 
 public class BorrowBookControl {
 	
-	private BorrowBookUI ui;//testing 
+	private BorrowBookUI ui;
+	private Library library; //updating the variable L to library 
+	private Member member; //updating the variable M to member
 	
-	private library L;
-	private member M;
+	//Changing the formating for the code for better visibility of the code
 	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
-	
+	//changing enum CONTROL_STATE to ControlState
+	private CONTROL_STATE state; //changing enum CONTROL_STATE to ControlState
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
 	private book B;
