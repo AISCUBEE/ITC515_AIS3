@@ -1,73 +1,78 @@
+//Author : Shyam
+//Reviewer: Santosh
+// Mediator : Aashis
+//Facilitator: Ashmit
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//all the imports above
+
 @SuppressWarnings("serial")
-public class member implements Serializable {
 
-	private String LN;
-	private String FN;
-	private String EM;
-	private int PN;
-	private int ID;
-	private double FINES;
+public class Member implements Serializable {  // class member changed to Member
+
+	private String lastName; // replace veritable LN to lastName
+	private String fistName; //renamed variable name FN to firstName
+	private String email; // EM is changed to email
+	private int phoneNo; //PN is changed to phoneNo
+	private int id; // ID is changed to ID
+	private double fines; // FINES is changed to fines
 	
-	private Map<Integer, loan> LNS;
+	private Map<Integer, loan> loans;  //LNS is changed to loans
 
 	
-	public member(String lastName, String firstName, String email, int phoneNo, int id) {
-		this.LN = lastName;
-		this.FN = firstName;
-		this.EM = email;
-		this.PN = phoneNo;
-		this.ID = id;
+	public Member(String lastName, String firstName, String email, int phoneNo, int id) { //
+		this.lastName = lastName; // LN to lastName
+		this.firstName = firstName; // FN to firstName
+		this.email= email;          // EM to email
+		this.phoneNo = phoneNo;    // PN to phoneNo
+		this.id = id;            // ID to id
 		
-		this.LNS = new HashMap<>();
+		this.loan = new HashMap<>();  // LNS to loan
 	}
 
 	
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Member:  ").append(ID).append("\n")
-		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n")
-		  .append("  Email: ").append(EM).append("\n")
-		  .append("  Phone: ").append(PN)
+		StringBuilder stringBuilder = new StringBuilder(); // constructor sb is changed to StringBuilder
+		StringBuilder.append("Member:  ").append(id).append("\n") // sb to StringBuilder
+		  .append("  Name:  ").append(lastName).append(", ").append(firstName).append("\n")//LN to lastName and FN to firstName
+		  .append("  Email: ").append(email).append("\n") // EM to email
+		  .append("  Phone: ").append(phoneNo)// PN to phoneNo
 		  .append("\n")
-		  .append(String.format("  Fines Owed :  $%.2f", FINES))
+		  .append(String.format("  Fines Owed :  $%.2f", fines))  // change FINES to fines
 		  .append("\n");
 		
-		for (loan loan : LNS.values()) {
-			sb.append(loan).append("\n");
+		for (loan loan : loan.values()) {  // added loan
+			StringBuilder.append(loan).append("\n"); // sb to StringBuilder
 		}		  
-		return sb.toString();
+		return StringBuilder.toString(); sb to StringBuilder // sb to StringBuilder
 	}
 
 	
 	public int getId() {
-		return ID;
+		return Id; // ID to id
 	}
 
 	
 	public List<loan> getLoans() {
-		return new ArrayList<loan>(LNS.values());
+		return new ArrayList<loan>(loans.values()); // change to loan for LNS
 	}
 
 	
 	public int getNumberOfCurrentLoans() {
-		return LNS.size();
+		return loans.size();  // LNS to loans
 	}
 
 	
 	public double getFinesOwed() {
-		return FINES;
+		return fines;  // FINES to fines
 	}
 
 	
 	public void takeOutLoan(loan loan) {
-		if (!LNS.containsKey(loan.getId())) {
-			LNS.put(loan.getId(), loan);
+		if (!loans.containsKey(loan.getId())) { loans to LNS
+			loans.put(loan.getId(), loan); // LNS to loan
 		}
 		else {
 			throw new RuntimeException("Duplicate loan added to member");
