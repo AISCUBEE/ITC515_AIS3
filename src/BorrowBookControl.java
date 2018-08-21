@@ -8,10 +8,10 @@ public class BorrowBookControl {
 	private Member member; //updating the variable M to member
 	
 	//Changing the formating for the code for better visibility of the code
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
 	//changing enum CONTROL_STATE to ControlState
-	private CONTROL_STATE state; //changing enum CONTROL_STATE to ControlState
-	private List<book> PENDING;
+	private ControlState state; //changing enum CONTROL_STATE to ControlState
+	private List<book> pending;
 	private List<loan> COMPLETED;
 	private book B;
 	
