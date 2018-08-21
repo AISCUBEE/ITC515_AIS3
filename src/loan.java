@@ -1,78 +1,90 @@
+//author: Shyam
+// Reviewer : Santosh
+//Mediater : Aashish
+//Facilitator : Ashmit
+
+/*************************************************************
+Create a class named Loan, defining parameters and methods 
+that describe a loan application for borrowing a book from 
+a library in real life.
+
+*************************************************************/
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 //editing in loan section now
+
 @SuppressWarnings("serial")
-public class loan implements Serializable {
 
-	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
+public class Loan implements Serializable {  // Public class loan is changed to Loan, class name should start with capital letter
 
-	private int ID;
-	private book B;
-	private member M;
-	private Date D;// testing
-	private LOAN_STATE state;
-
-
-	public loan(int loanId, book book, member member, Date dueDate) {
-		this.ID = loanId;
-		this.B = book;
-		this.M = member;
-		this.D = dueDate;
-		this.state = LOAN_STATE.CURRENT;
-	}
+	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED }; // changed the name LOAN_STATE to loanState
+	private int id;         // ID is changed to id
+	private Book book;	    // //changed type book to Book and and attribute name B to book 
+	private Member member; //changing variable m to member
+	private Date date;     //change attribute name D to date
+	private loanState state;// changed LOAN_STATE to loanState
 
 
+	public Loan(int loanId, Book book, Member member, Date dueDate) {  // constructor loan is changed to Loan and argument type book and member us are changed to Book and Member
+		this.id = loanId;  // ID is changed to id
+		this.book = book; //this.B changed to this.book
+		this.member = member;//this.M to this member
+		this.date = dueDate;  // this.D to this.date
+		this.state = losnState.CURRENT; // LOAN_STATE.CURRENT changed to loanState.CURRENT
+		
 	public void checkOverDue() {
-		if (state == LOAN_STATE.CURRENT &&
-			Calendar.getInstance().Date().after(D)) {
-			this.state = LOAN_STATE.OVER_DUE;
+		if (state == loanState.CURRENT &&
+			Calendar.getInstance().Date().after(date)) {		// D is changed  to date
+			this.state = loanState.OVER_DUE;					//change LOAN_STATE to loanState		
 		}
 	}
 
-
+	
 	public boolean isOverDue() {
-		return state == LOAN_STATE.OVER_DUE;
-	}//testing
+		return state == loanState.OVER_DUE;				//LOAN_STATE is to loanState
+	}
 
-
-	public Integer getId() {
-		return ID;
+	
+	public int getId() {					//change return type Integer to int
+		return id;							//ID is changed to id
 	}
 
 
 	public Date getDueDate() {
-		return D;
+		return date;						//change D to date
 	}
-
-
+	
+	
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");		//variable name sdf is changed to simpleDateFormat
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(ID).append("\n")
-		  .append("  Borrower ").append(M.getId()).append(" : ")
-		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
-		  .append("  Book ").append(B.ID()).append(" : " )
-		  .append(B.Title()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
-		  .append("  State: ").append(state);
-		return sb.toString();
+		StringBuilder stringBuilder = new StringBuilder();				//change sb to stringBuilder
+		stringBuilder.append("Loan:  ").append(id).append("\n")			//sb is changed to stringBuilder and ID is to id
+		  .append("  Borrower ").append(member.getId()).append(" : ")	//change M to member
+		  .append(member.getLastName()).append(", ").append(member.getFirstName()).append("\n")
+		  .append("  Book ").append(book.ID()).append(" : " )			//change B to book
+		  .append(book.Title()).append("\n")
+		  .append("  DueDate: ").append(simpleDateFormat.format(date)).append("\n")		//sdf is changed to simpleDateFormat and D to date
+		  .append("  State: ").append(state);		
+		return stringBuilder.toString();
 	}
 
 
-	public member Member() {
-		return M;
+	public Member member() {	// return type member is changed to Member and method name Member is changed to member
+		return member;			//change M to member
 	}
 
 
-	public book Book() {
-		return B;
+	public Book book() {			//change return type book to Book and method name Book to book
+		return book;				// B to book
 	}
 
 
-	public void Loan() {
-		state = LOAN_STATE.DISCHARGED;
+	public void loan() { 						//method name Loan  is changed to loan
+		state = loanState.DISCHARGED;			//LOAN_STATE is changed to loanState
 	}
 
 }
+
