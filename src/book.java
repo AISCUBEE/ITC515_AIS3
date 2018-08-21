@@ -50,17 +50,17 @@ public class Book implements Serializable { //Class name initial is always in ca
 	}
 
 	
-	public boolean onLoan() { //remaining On_loan to onLoan
+	public boolean onLoan() { //renaming On_loan to onLoan
 		return state == State.ON_LOAN; //changes in the variable STATE to state
 	}
 
 	
-	public boolean Damaged() { 
-		return state == STATE.DAMAGED;
+	public boolean damaged() {  // changing Damaged to damaged
+		return state == State.DAMAGED; //changing STATE to State
 	}
 
 	
-	public void Borrow() {
+	public void borrow() { //renaming Borrow to borrow in the method
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
 		}
@@ -71,13 +71,13 @@ public class Book implements Serializable { //Class name initial is always in ca
 	}
 
 
-	public void Return(boolean DAMAGED) {
-		if (state.equals(STATE.ON_LOAN)) {
+	public void returnBook(boolean DAMAGED) { //renaming Return to returnBook in the method
+		if (state.equals(State.ON_LOAN)) {
 			if (DAMAGED) {
-				state = STATE.DAMAGED;
+				state = State.DAMAGED;
 			}
 			else {
-				state = STATE.AVAILABLE;
+				state = State.AVAILABLE;
 			}
 		}
 		else {
