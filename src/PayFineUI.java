@@ -14,12 +14,12 @@ public class PayFineUI {
 	public PayFineUI(PayFineControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = uiState.INITIALISED;
+		state = uiState.INITIALISED;	//Changed UI_STATE to uiState
 		control.setUI(this);
 	}
 	
 	
-	public void setState(uiState state) {
+	public void setState(uiState state) {//Changed UI_STATE to uiState
 		this.state = state;
 	}
 
