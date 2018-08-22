@@ -19,8 +19,8 @@ public class Book implements Serializable { //Class name initial is always in ca
 	private enum state { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; //changing STATE to state
 	private State state; //changing type STATE to State
 	
-	
-	public book(String author, String title, String callNo, int id) {
+	//Reviewer's note to chage b of book in Book 
+	public Book(String author, String title, String callNo, int id) {
 		this.author = author; //updating variable this.T to this.title
 		this.title = title; //updating variable this.A to this.author
 		this.callNo = callNo; //updating variable this.C to this.callNo
