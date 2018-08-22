@@ -1,11 +1,21 @@
+/**
+Author:Santosh Sapkota
+Reviewer: Ashish Maharjan
+Mediator: Shyam Shrestha
+Facilitator: Ashmit Man Sthapit
+*/
+
+
+
+
 public class PayFineControl {
 	
 	private PayFineUI ui;
 	private enum controlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; //changed CONTROL_STATE to controlState
 	private controlState state;
 	
-	private library library;
-	private member member;;
+	private library library; ?// mistake 1 attribute library to Library
+	private member member;;// mistake 2 attribute member to Member
 
 
 	public PayFineControl() {

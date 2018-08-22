@@ -1,3 +1,15 @@
+/**
+Author:Santosh Sapkota
+Reviewer: Ashish Maharjan
+Mediator: Shyam Shrestha
+Facilitator: Ashmit Man Sthapit
+*/
+
+
+
+
+
+
 import java.util.Scanner;
 
 
@@ -6,7 +18,7 @@ public class PayFineUI {
 
 	public static enum uiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private PayFineControl control;
+	private payFineControl control;//mistake 1 PayFineControl class name small letter
 	private Scanner input;
 	private uiState state;			//Changed UI_STATE to uiState
 
@@ -32,13 +44,13 @@ public class PayFineUI {
 			switch (state) {
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
+				String memStr = input("Swipe member card (press <enter> to cancel): ");//mistake 2 memStr improper name (memberString)
+				if (memStr.length() == 0) {)
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memStr).intValue();//mistake 2 memStr improper name (memberString)
 					control.cardSwiped(memberId);
 				}
 				catch (NumberFormatException e) {
@@ -48,13 +60,13 @@ public class PayFineUI {
 				
 			case PAYING:
 				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
+				String amtStr = input("Enter amount (<Enter> cancels) : ");//mistake 3 amtStr improper name amountString
 				if (amtStr.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					amount = Double.valueOf(amtStr).doubleValue();//mistake 3 amtStr improper name amountString
 				}
 				catch (NumberFormatException e) {}
 				if (amount <= 0) {

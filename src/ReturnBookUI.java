@@ -1,16 +1,27 @@
+/**
+Author:Santosh Sapkota
+Reviewer: Ashish Maharjan
+Mediator: Shyam Shrestha
+Facilitator: Ashmit Man Sthapit
+*/
+
+
+
+
 import java.util.Scanner;
 
 
 public class ReturnBookUI {
 
-	public static enum uiState { INITIALISED, READY, INSPECTING, COMPLETED };//Changed UI_STATE to uiState
+	public static enum uiState { INITIALISED, READY, INSPECTING, COMPLE
+	TED };//Changed UI_STATE to uiState
 
 	private ReturnBookControl control;
 	private Scanner input;
 	private uiState state;
 
 	
-	public returnBookUI(ReturnBookControl control) {
+	public ReturnBookUI(ReturnBookControl control) { //Reviewer Note Class Name Start with Capital Letter
 		this.control = control;
 		input = new Scanner(System.in);
 		state = uiState.INITIALISED;										//Changed UI_STATE to uiState
@@ -45,9 +56,9 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String ans = input("Is book damaged? (Y/N): ");
+				String answer = input("Is book damaged? (Y/N): ");//Reviewer Note Proper variable name for ans to answer
 				boolean isDamaged = false;
-				if (ans.toUpperCase().equals("Y")) {				
+				if (answer.toUpperCase().equals("Y")) {				
 					isDamaged = true;
 				}
 				control.dischargeLoan(isDamaged);
