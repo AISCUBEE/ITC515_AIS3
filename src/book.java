@@ -16,7 +16,7 @@ public class Book implements Serializable { //Class name initial is always in ca
 	private String callNo; //updating variable C to callNo
 	private int id; //updating variable ID to id
 	
-	private enum state { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; //changing STATE to state
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; //Reviewer Note changing STATE to State as its special java type
 	private State state; //changing type STATE to State
 	
 	//Reviewer's note to chage b of book in Book 
