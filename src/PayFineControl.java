@@ -14,8 +14,8 @@ public class PayFineControl {
 	private enum controlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; //changed CONTROL_STATE to controlState
 	private controlState state;
 	
-	private library library; ?// mistake 1 attribute library to Library
-	private member member;;// mistake 2 attribute member to Member
+	private Library library; // Changed attribute library to Library (Reviewed)
+	private Member member;;// Changed attribute member to Member(Reviewed)
 
 
 	public PayFineControl() {
