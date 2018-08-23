@@ -1,4 +1,7 @@
 //Author: Ashmit Man Sthapit
+//Reviewer: Shyam Shrestha
+//Mediator: Santosh Sapkota
+//Facilitator: Aashish Maharjan
 import java.util.Scanner;
 
 
