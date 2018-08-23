@@ -13,15 +13,14 @@ import java.util.Scanner;
 
 public class ReturnBookUI {
 
-	public static enum uiState { INITIALISED, READY, INSPECTING, COMPLE
-	TED };//Changed UI_STATE to uiState
+	public static enum uiState { INITIALISED, READY, INSPECTING, COMPLETED };//Changed UI_STATE to uiState
 
 	private ReturnBookControl control;
 	private Scanner input;
 	private uiState state;
 
 	
-	public ReturnBookUI(ReturnBookControl control) { //Reviewer Note Class Name Start with Capital Letter
+	public ReturnBookUI(ReturnBookControl control) { 
 		this.control = control;
 		input = new Scanner(System.in);
 		state = uiState.INITIALISED;										//Changed UI_STATE to uiState
@@ -40,13 +39,13 @@ public class ReturnBookUI {
 				break;
 				
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): "); //Proper variable name for bookString to bookString
-				if (bookString.length() == 0) {//Proper variable name name for bookString to bookString
+				String bookString = input("Scan Book (<enter> completes): "); //Changed variable name for bookStr to bookString((Reviewed by Ashsih)
+				if (bookString.length() == 0) {//Changed variable name name for bookStr to bookString
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookString).intValue();//Proper variable name for bookString to bookString
+						int bookId = Integer.valueOf(bookString).intValue();//Changed variable name for bookstr to bookString(Reviewed by Ashsih)
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -56,7 +55,7 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String answer = input("Is book damaged? (Y/N): ");//Reviewer Note Proper variable name for ans to answer
+				String answer = input("Is book damaged? (Y/N): ");//Changed variable name ans with answer
 				boolean isDamaged = false;
 				if (answer.toUpperCase().equals("Y")) {				
 					isDamaged = true;
