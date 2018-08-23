@@ -1,11 +1,20 @@
+/**
+Author:Santosh Sapkota
+Reviewer: Ashish Maharjan
+Mediator: Shyam Shrestha
+Facilitator: Ashmit Man Sthapit
+*/
+
+
+
 public class ReturnBookControl {
 
 	private ReturnBookUI ui;
 	private enum ControlState { INITIALISED, READY, INSPECTING }; //Changed CONTROL_STATE to ControlState
 	private ControlState state;//Changed CONTROL_STATE to ControlState
 	
-	private library library;
-	private loan currentLoan;
+	private library library; 
+	private loan currentLoan; 
 	
 
 	public ReturnBookControl() {
