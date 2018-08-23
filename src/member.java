@@ -11,7 +11,7 @@ import java.util.Map;
 
 @SuppressWarnings("serial")
 
-public class Member implements Serializable {  // class member changed to Member
+public class Member implements Serializable {  // class name member changed to Member
 
 	private String lastName; // replace veritable LN to lastName
 	private String fistName; //renamed variable name FN to firstName
