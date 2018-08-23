@@ -18,7 +18,7 @@ public class PayFineUI {
 
 	public static enum uiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private payFineControl control;//mistake 1 PayFineControl class name small letter
+	private PayFineControl control; //Chnaged payFineControl to PayFineControl(Reviewed by Ashsih)
 	private Scanner input;
 	private uiState state;			//Changed UI_STATE to uiState
 
@@ -44,13 +44,13 @@ public class PayFineUI {
 			switch (state) {
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");//mistake 2 memStr improper name (memberString)
-				if (memStr.length() == 0) {)
+				String memberString = input("Swipe member card (press <enter> to cancel): ");//Changed membrStr to memberString (Reviewed by Ashsih)
+				if (memberString.length() == 0) {)
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();//mistake 2 memStr improper name (memberString)
+					int memberId = Integer.valueOf(memberString).intValue();//
 					control.cardSwiped(memberId);
 				}
 				catch (NumberFormatException e) {
@@ -60,13 +60,13 @@ public class PayFineUI {
 				
 			case PAYING:
 				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");//mistake 3 amtStr improper name amountString
+				String amtStr = input("Enter amount (<Enter> cancels) : ");//Changed amtStr to the amountString(Reviewed by Ashish)
 				if (amtStr.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();//mistake 3 amtStr improper name amountString
+					amount = Double.valueOf(amtStr).doubleValue();//Changed amtStr to the amountString(Reviewed by Ashsih)
 				}
 				catch (NumberFormatException e) {}
 				if (amount <= 0) {
