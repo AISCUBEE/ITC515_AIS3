@@ -46,70 +46,70 @@ public class BorrowBookUI {
 		while (true) {
 			
 			switch (state) {			
-			
-			case CANCELLED:
-				output("Borrowing Cancelled");
-				return;
+			//Reviewers Note to change the line spacing to match the formating protocol
+				case CANCELLED:
+					output("Borrowing Cancelled");
+					return;
 
-			// renaming all the memberStr to memberString	
-			case READY:
-				String memberString = input("Swipe member card (press <enter> to cancel): ");
-				if (memberString.length() == 0) {
+				// renaming all the memberStr to memberString	
+				case READY:
+					String memberString = input("Swipe member card (press <enter> to cancel): ");
+					if (memberString.length() == 0) {
+						control.cancel();
+						break;
+					}
+					try {
+						int memberId = Integer.valueOf(memberStr).intValue();
+						control.Swiped(memberId);
+					}
+					catch (NumberFormatException e) {
+						output("Invalid Member Id");
+					}
+					break;
+
+					
+				case RESTRICTED:
+					input("Press <any key> to cancel");
 					control.cancel();
 					break;
-				}
-				try {
-					int memberId = Integer.valueOf(memberStr).intValue();
-					control.Swiped(memberId);
-				}
-				catch (NumberFormatException e) {
-					output("Invalid Member Id");
-				}
-				break;
-
 				
-			case RESTRICTED:
-				input("Press <any key> to cancel");
-				control.cancel();
-				break;
-			
-			//updating all bookStr to bookString	
-			case SCANNING:
-				String bookString = input("Scan Book (<enter> completes): ");
-				if (bookString.length() == 0) {
-					control.Complete();
+				//updating all bookStr to bookString	
+				case SCANNING:
+					String bookString = input("Scan Book (<enter> completes): ");
+					if (bookString.length() == 0) {
+						control.Complete();
+						break;
+					}
+					try {
+						int bookId = Integer.valueOf(bookString).intValue();
+						control.Scanned(bookId);
+						
+					} catch (NumberFormatException e) {
+						output("Invalid Book Id");
+					} 
 					break;
-				}
-				try {
-					int bookId = Integer.valueOf(bookString).intValue();
-					control.Scanned(bookId);
+						
+				//updating the ans to answer to make it more meaningful	
+				case FINALISING:
+					String answer = input("Commit loans? (Y/N): ");
+					if (answer.toUpperCase().equals("N")) {
+						control.cancel();
+						
+					} else {
+						control.commitLoans();
+						input("Press <any key> to complete ");
+					}
+					break;
 					
-				} catch (NumberFormatException e) {
-					output("Invalid Book Id");
-				} 
-				break;
 					
-			//updating the ans to answer to make it more meaningful	
-			case FINALISING:
-				String answer = input("Commit loans? (Y/N): ");
-				if (answer.toUpperCase().equals("N")) {
-					control.cancel();
+				case COMPLETED:
+					output("Borrowing Completed");
+					return;
+		
 					
-				} else {
-					control.commitLoans();
-					input("Press <any key> to complete ");
-				}
-				break;
-				
-				
-			case COMPLETED:
-				output("Borrowing Completed");
-				return;
-	
-				
-			default:
-				output("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + state);			
+				default:
+					output("Unhandled state");
+					throw new RuntimeException("BorrowBookUI : unhandled state :" + state);			
 			}
 		}		
 	}
