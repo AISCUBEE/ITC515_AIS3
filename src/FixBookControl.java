@@ -1,4 +1,8 @@
-/*Author: Ashmit Man Sthapit*/
+/*Author: Ashmit Man Sthapit
+  Reviewer: Shyam Shrestha
+  Mediator: Santosh Sapkota
+  Facilitator: Aashish Maharjan
+*/
 public class FixBookControl {
 	
 	private FixBookUI ui;
