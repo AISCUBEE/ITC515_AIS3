@@ -66,7 +66,7 @@ public class Library implements Serializable {// class name was started with sma
 					throw new RuntimeException(e);
 				}
 			}
-			else self = new library();
+			else self = new Library();//library is changed into Library
 		}
 		return self;
 	}
@@ -98,12 +98,12 @@ public class Library implements Serializable {// class name was started with sma
 	
 	
 	private int nextBookId() {//changed nextBID to nextBookId
-		return BID++;
+		return bookId++; // changed BID to bookId
 	}
 
 	
 	private int nextMemberId() {
-		return MID++;
+		return memberId++;// changed MID to memberId
 	}
 
 	
