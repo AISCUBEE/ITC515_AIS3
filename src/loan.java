@@ -3,12 +3,6 @@
 //Mediater : Aashish
 //Facilitator : Ashmit
 
-/*************************************************************
-Create a class named Loan, defining parameters and methods 
-that describe a loan application for borrowing a book from 
-a library in real life.
-
-*************************************************************/
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
