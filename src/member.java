@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class Member implements Serializable {  // class name member changed to Member
 
-	private String lastName; // replace veritable LN to lastName
+	private String lastName; // replace variable LN to lastName
 	private String fistName; //renamed variable name FN to firstName
 	private String email; // EM is changed to email
 	private int phoneNo; //PN is changed to phoneNo
