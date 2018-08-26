@@ -14,7 +14,7 @@ public class Main {
 	private static Library library; //renamed library to Library and variable LIB to library
 	private static String menu; //replace variable MENU to menu
 	private static Calendar calendar;  // avoid variable name CAL  and changed to calendar
-	private static SimpleDateFormat dateFormat; //renamed variable SDF to SimplDateFormat
+	private static SimpleDateFormat dateFormat; //renamed variable SDF to dateFormat
 	
 	
 	private static String getMenu() {  //renamed method Get_menu to getMenu
